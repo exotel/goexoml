@@ -1,8 +1,3 @@
-### goexoml
-The `exoml` library for golang
-
-###sample Code
-```
 package main
 
 import (
@@ -32,8 +27,3 @@ func main() {
 	fmt.Println(dial)
 	return
 }
-```
-
-
-####contributions
-sarath@exotel.in
