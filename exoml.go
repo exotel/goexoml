@@ -11,7 +11,7 @@ func (r *Response) Action(structs ...interface{}) error {
 		switch s := s.(type) {
 		default:
 			return fmt.Errorf("non valid verb: '%T'", s)
-		case Hangup, Play, Record, Say, Redirect, Gather, Dial:
+		case *Hangup, Hangup, Play, *Play, Record, *Record, *Say, *Redirect, Redirect, *Gather, Gather, *Dial, Dial:
 			r.Response = append(r.Response, s)
 		}
 	}
