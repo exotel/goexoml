@@ -1,4 +1,4 @@
-### goexoml
+### goexoml [![GoDoc](https://godoc.org/gopkg.in/exotel/goexoml.v1/buildergenerator?status.svg)](https://godoc.org/gopkg.in/exotel/goexoml.v1/buildergenerator)
 The `ExoML` library for golang
 
 ####What is it?
@@ -33,14 +33,14 @@ The following will be interpreted by exotel as a request to make a call to the n
 
 
 ####how to use
-Install the library using `go get`
+Install the latest library using `go get`
 ```
 go get github.com/exotel/goexoml
 ```
 
 or  from the gopkg repo to make sure the version number is maintained all time
 ```
-go get gopkg.in/exotel/goexoml.v0 //v0.X
+go get gopkg.in/exotel/goexoml.v1 //for v1.x.x
 ```
 
 
