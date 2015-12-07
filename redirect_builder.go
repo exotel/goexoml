@@ -3,13 +3,13 @@
 
 package goexoml
 
-//SetMethod sets Method
+//SetMethod sets Method for Redirect struct instance
 func (__redirect__ *Redirect) SetMethod(method string) *Redirect {
 	__redirect__.Method = method
 	return __redirect__
 }
 
-//SetURL sets URL
+//SetURL sets URL for Redirect struct instance
 func (__redirect__ *Redirect) SetURL(url string) *Redirect {
 	__redirect__.URL = url
 	return __redirect__
@@ -21,6 +21,7 @@ func NewRedirect() *Redirect {
 }
 
 //IRedirect The interface that satisfies all the methods for this struct
+//IRedirect asserts implementation of setters for all the fields of Redirect
 type IRedirect interface {
 	SetMethod(method string) *Redirect
 	SetURL(url string) *Redirect

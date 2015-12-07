@@ -9,6 +9,7 @@ func NewHangup() *Hangup {
 }
 
 //IHangup The interface that satisfies all the methods for this struct
+//IHangup asserts implementation of setters for all the fields of Hangup
 type IHangup interface {
 }
 

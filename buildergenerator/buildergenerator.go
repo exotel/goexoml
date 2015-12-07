@@ -40,7 +40,7 @@ func getTempalte() (temp *template.Template, err error) {
 	package goexoml
   {{$name := .Name}}
 	{{range $index, $field := .Fields}}
-	//Set{{$field.FieldName}} sets {{$field.FieldName}}
+	//Set{{$field.FieldName}} sets {{$field.FieldName}} for {{$name}} struct instance
 	func ({{$name | reciever}} *{{$name}}) Set{{$field.FieldName}}({{$field.FieldName | lower}} {{$field.FieldType}}) *{{$name}}{
 		{{$name | reciever}}.{{$field.FieldName}} = {{$field.FieldName | lower}}
 		return {{$name | reciever}}
@@ -53,6 +53,7 @@ func getTempalte() (temp *template.Template, err error) {
 	}
 
 	//I{{.Name}} The interface that satisfies all the methods for this struct
+	//I{{.Name}} asserts implementation of setters for all the fields of {{.Name}}
   type I{{.Name}}	interface {
 	    {{range $index, $field := .Fields}}Set{{$field.FieldName}}({{$field.FieldName | lower}} {{$field.FieldType}}) *{{$name}};{{end}}
   }

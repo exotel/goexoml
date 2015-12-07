@@ -3,43 +3,43 @@
 
 package goexoml
 
-//SetSendDigits sets SendDigits
+//SetSendDigits sets SendDigits for Number struct instance
 func (__number__ *Number) SetSendDigits(senddigits string) *Number {
 	__number__.SendDigits = senddigits
 	return __number__
 }
 
-//SetURL sets URL
+//SetURL sets URL for Number struct instance
 func (__number__ *Number) SetURL(url string) *Number {
 	__number__.URL = url
 	return __number__
 }
 
-//SetMethod sets Method
+//SetMethod sets Method for Number struct instance
 func (__number__ *Number) SetMethod(method string) *Number {
 	__number__.Method = method
 	return __number__
 }
 
-//SetStatusCallbackEvent sets StatusCallbackEvent
+//SetStatusCallbackEvent sets StatusCallbackEvent for Number struct instance
 func (__number__ *Number) SetStatusCallbackEvent(statuscallbackevent string) *Number {
 	__number__.StatusCallbackEvent = statuscallbackevent
 	return __number__
 }
 
-//SetStatusCallback sets StatusCallback
+//SetStatusCallback sets StatusCallback for Number struct instance
 func (__number__ *Number) SetStatusCallback(statuscallback string) *Number {
 	__number__.StatusCallback = statuscallback
 	return __number__
 }
 
-//SetStatusCallbackMethod sets StatusCallbackMethod
+//SetStatusCallbackMethod sets StatusCallbackMethod for Number struct instance
 func (__number__ *Number) SetStatusCallbackMethod(statuscallbackmethod string) *Number {
 	__number__.StatusCallbackMethod = statuscallbackmethod
 	return __number__
 }
 
-//SetNoun sets Noun
+//SetNoun sets Noun for Number struct instance
 func (__number__ *Number) SetNoun(noun string) *Number {
 	__number__.Noun = noun
 	return __number__
@@ -51,6 +51,7 @@ func NewNumber() *Number {
 }
 
 //INumber The interface that satisfies all the methods for this struct
+//INumber asserts implementation of setters for all the fields of Number
 type INumber interface {
 	SetSendDigits(senddigits string) *Number
 	SetURL(url string) *Number

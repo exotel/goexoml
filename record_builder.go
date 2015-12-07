@@ -3,55 +3,55 @@
 
 package goexoml
 
-//SetAction sets Action
+//SetAction sets Action for Record struct instance
 func (__record__ *Record) SetAction(action string) *Record {
 	__record__.Action = action
 	return __record__
 }
 
-//SetMethod sets Method
+//SetMethod sets Method for Record struct instance
 func (__record__ *Record) SetMethod(method string) *Record {
 	__record__.Method = method
 	return __record__
 }
 
-//SetTimeout sets Timeout
+//SetTimeout sets Timeout for Record struct instance
 func (__record__ *Record) SetTimeout(timeout int) *Record {
 	__record__.Timeout = timeout
 	return __record__
 }
 
-//SetFinishOnKey sets FinishOnKey
+//SetFinishOnKey sets FinishOnKey for Record struct instance
 func (__record__ *Record) SetFinishOnKey(finishonkey string) *Record {
 	__record__.FinishOnKey = finishonkey
 	return __record__
 }
 
-//SetMaxLength sets MaxLength
+//SetMaxLength sets MaxLength for Record struct instance
 func (__record__ *Record) SetMaxLength(maxlength int) *Record {
 	__record__.MaxLength = maxlength
 	return __record__
 }
 
-//SetTranscribe sets Transcribe
+//SetTranscribe sets Transcribe for Record struct instance
 func (__record__ *Record) SetTranscribe(transcribe bool) *Record {
 	__record__.Transcribe = transcribe
 	return __record__
 }
 
-//SetTranscribeCallback sets TranscribeCallback
+//SetTranscribeCallback sets TranscribeCallback for Record struct instance
 func (__record__ *Record) SetTranscribeCallback(transcribecallback string) *Record {
 	__record__.TranscribeCallback = transcribecallback
 	return __record__
 }
 
-//SetPlayBeep sets PlayBeep
+//SetPlayBeep sets PlayBeep for Record struct instance
 func (__record__ *Record) SetPlayBeep(playbeep bool) *Record {
 	__record__.PlayBeep = playbeep
 	return __record__
 }
 
-//SetTrim sets Trim
+//SetTrim sets Trim for Record struct instance
 func (__record__ *Record) SetTrim(trim string) *Record {
 	__record__.Trim = trim
 	return __record__
@@ -63,6 +63,7 @@ func NewRecord() *Record {
 }
 
 //IRecord The interface that satisfies all the methods for this struct
+//IRecord asserts implementation of setters for all the fields of Record
 type IRecord interface {
 	SetAction(action string) *Record
 	SetMethod(method string) *Record

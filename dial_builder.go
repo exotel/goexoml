@@ -3,55 +3,55 @@
 
 package goexoml
 
-//SetAction sets Action
+//SetAction sets Action for Dial struct instance
 func (__dial__ *Dial) SetAction(action string) *Dial {
 	__dial__.Action = action
 	return __dial__
 }
 
-//SetMethod sets Method
+//SetMethod sets Method for Dial struct instance
 func (__dial__ *Dial) SetMethod(method string) *Dial {
 	__dial__.Method = method
 	return __dial__
 }
 
-//SetTimeout sets Timeout
+//SetTimeout sets Timeout for Dial struct instance
 func (__dial__ *Dial) SetTimeout(timeout int) *Dial {
 	__dial__.Timeout = timeout
 	return __dial__
 }
 
-//SetHangupOnStar sets HangupOnStar
+//SetHangupOnStar sets HangupOnStar for Dial struct instance
 func (__dial__ *Dial) SetHangupOnStar(hanguponstar bool) *Dial {
 	__dial__.HangupOnStar = hanguponstar
 	return __dial__
 }
 
-//SetTimeLimit sets TimeLimit
+//SetTimeLimit sets TimeLimit for Dial struct instance
 func (__dial__ *Dial) SetTimeLimit(timelimit int) *Dial {
 	__dial__.TimeLimit = timelimit
 	return __dial__
 }
 
-//SetCallerID sets CallerID
+//SetCallerID sets CallerID for Dial struct instance
 func (__dial__ *Dial) SetCallerID(callerid string) *Dial {
 	__dial__.CallerID = callerid
 	return __dial__
 }
 
-//SetRecord sets Record
+//SetRecord sets Record for Dial struct instance
 func (__dial__ *Dial) SetRecord(record bool) *Dial {
 	__dial__.Record = record
 	return __dial__
 }
 
-//SetPlainNumber sets PlainNumber
+//SetPlainNumber sets PlainNumber for Dial struct instance
 func (__dial__ *Dial) SetPlainNumber(plainnumber string) *Dial {
 	__dial__.PlainNumber = plainnumber
 	return __dial__
 }
 
-//SetNumber sets Number
+//SetNumber sets Number for Dial struct instance
 func (__dial__ *Dial) SetNumber(number Number) *Dial {
 	__dial__.Number = number
 	return __dial__
@@ -63,6 +63,7 @@ func NewDial() *Dial {
 }
 
 //IDial The interface that satisfies all the methods for this struct
+//IDial asserts implementation of setters for all the fields of Dial
 type IDial interface {
 	SetAction(action string) *Dial
 	SetMethod(method string) *Dial

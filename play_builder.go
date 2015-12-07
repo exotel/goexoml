@@ -3,19 +3,19 @@
 
 package goexoml
 
-//SetLoop sets Loop
+//SetLoop sets Loop for Play struct instance
 func (__play__ *Play) SetLoop(loop int) *Play {
 	__play__.Loop = loop
 	return __play__
 }
 
-//SetDigits sets Digits
+//SetDigits sets Digits for Play struct instance
 func (__play__ *Play) SetDigits(digits int) *Play {
 	__play__.Digits = digits
 	return __play__
 }
 
-//SetURL sets URL
+//SetURL sets URL for Play struct instance
 func (__play__ *Play) SetURL(url string) *Play {
 	__play__.URL = url
 	return __play__
@@ -27,6 +27,7 @@ func NewPlay() *Play {
 }
 
 //IPlay The interface that satisfies all the methods for this struct
+//IPlay asserts implementation of setters for all the fields of Play
 type IPlay interface {
 	SetLoop(loop int) *Play
 	SetDigits(digits int) *Play

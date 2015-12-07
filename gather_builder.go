@@ -3,43 +3,43 @@
 
 package goexoml
 
-//SetAction sets Action
+//SetAction sets Action for Gather struct instance
 func (__gather__ *Gather) SetAction(action string) *Gather {
 	__gather__.Action = action
 	return __gather__
 }
 
-//SetMethod sets Method
+//SetMethod sets Method for Gather struct instance
 func (__gather__ *Gather) SetMethod(method string) *Gather {
 	__gather__.Method = method
 	return __gather__
 }
 
-//SetTimeout sets Timeout
+//SetTimeout sets Timeout for Gather struct instance
 func (__gather__ *Gather) SetTimeout(timeout int) *Gather {
 	__gather__.Timeout = timeout
 	return __gather__
 }
 
-//SetFinishOnKey sets FinishOnKey
+//SetFinishOnKey sets FinishOnKey for Gather struct instance
 func (__gather__ *Gather) SetFinishOnKey(finishonkey string) *Gather {
 	__gather__.FinishOnKey = finishonkey
 	return __gather__
 }
 
-//SetNumDigits sets NumDigits
+//SetNumDigits sets NumDigits for Gather struct instance
 func (__gather__ *Gather) SetNumDigits(numdigits int) *Gather {
 	__gather__.NumDigits = numdigits
 	return __gather__
 }
 
-//SetSay sets Say
+//SetSay sets Say for Gather struct instance
 func (__gather__ *Gather) SetSay(say Say) *Gather {
 	__gather__.Say = say
 	return __gather__
 }
 
-//SetPlay sets Play
+//SetPlay sets Play for Gather struct instance
 func (__gather__ *Gather) SetPlay(play Play) *Gather {
 	__gather__.Play = play
 	return __gather__
@@ -51,6 +51,7 @@ func NewGather() *Gather {
 }
 
 //IGather The interface that satisfies all the methods for this struct
+//IGather asserts implementation of setters for all the fields of Gather
 type IGather interface {
 	SetAction(action string) *Gather
 	SetMethod(method string) *Gather

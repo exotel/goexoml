@@ -3,25 +3,25 @@
 
 package goexoml
 
-//SetVoice sets Voice
+//SetVoice sets Voice for Say struct instance
 func (__say__ *Say) SetVoice(voice string) *Say {
 	__say__.Voice = voice
 	return __say__
 }
 
-//SetLanguage sets Language
+//SetLanguage sets Language for Say struct instance
 func (__say__ *Say) SetLanguage(language string) *Say {
 	__say__.Language = language
 	return __say__
 }
 
-//SetLoop sets Loop
+//SetLoop sets Loop for Say struct instance
 func (__say__ *Say) SetLoop(loop int) *Say {
 	__say__.Loop = loop
 	return __say__
 }
 
-//SetText sets Text
+//SetText sets Text for Say struct instance
 func (__say__ *Say) SetText(text string) *Say {
 	__say__.Text = text
 	return __say__
@@ -33,6 +33,7 @@ func NewSay() *Say {
 }
 
 //ISay The interface that satisfies all the methods for this struct
+//ISay asserts implementation of setters for all the fields of Say
 type ISay interface {
 	SetVoice(voice string) *Say
 	SetLanguage(language string) *Say

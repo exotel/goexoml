@@ -1,4 +1,4 @@
-### goexoml [![GoDoc](https://godoc.org/gopkg.in/exotel/goexoml.v1/buildergenerator?status.svg)](https://godoc.org/gopkg.in/exotel/goexoml.v1/buildergenerator)
+### goexoml [![GoDoc](https://godoc.org/gopkg.in/exotel/goexoml.v1?status.svg)](https://godoc.org/gopkg.in/exotel/goexoml.v1)
 The `ExoML` library for golang
 
 ####What is it?
@@ -62,7 +62,7 @@ import (
 //         Press the star key when finished.
 //     </Say>
 //     <Record
-//         action="http://foo.edu/handleRecording.php"
+//         action="http://example.exotel.in/handleRecording"
 //         method="GET"
 //         maxLength="20"
 //         finishOnKey="*"
@@ -80,7 +80,7 @@ func Example() (string, error) {
 	say2 := goexoml.NewSay().SetText("I did not receive a recording.")
 
 	//create the recors vberb and add attributes
-	rec := goexoml.NewRecord().SetAction("http://foo.edu/handleRecording.php").SetMethod("GET").SetMaxLength(20)
+	rec := goexoml.NewRecord().SetAction("http://example.exotel.in/handleRecording").SetMethod("GET").SetMaxLength(20)
 
 	//Add the Action verbs to the response object in expected order
 	err := resp.Action(say1, rec, say2)
