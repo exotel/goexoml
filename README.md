@@ -38,6 +38,12 @@ Install the library using `go get`
 go get github.com/exotel/goexoml
 ```
 
+or  from the gopkg repo to make sure the version number is maintained all time
+```
+go get gopkg.in/exotel/goexoml.v0 //v0.X
+```
+
+
 ###sample Code
 ```
 package main
@@ -99,6 +105,22 @@ func main() {
 }
 
 ```
+
+####Versioning
+#####*major version Changes would mean following *
+* Removing or renaming *any* exposed name (function, method, type, etc)
+* Adding, removing or renaming methods in an interface
+* Adding a parameter to a function, method, or interface
+* Changing the type of a parameter or result in a function, method, or interface
+* Changing the number of results in a function, method, or interface
+* Some user facing struct changes
+
+#####*expect these changes even without major version being same *
+* Adding exposed names (function, method, type, etc)
+* Renaming a parameter or result of a function, method, or interface*
+* Some struct changes which does not directly affect the functionality of the library [*much*] but may/maynot add new features to the existing library
+
+
 
 
 ####contributions
