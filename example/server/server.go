@@ -8,7 +8,7 @@ import (
 	mw "github.com/labstack/echo/middleware"
 )
 
-//Dial returns a twniml given number to call a number
+//Dial returns an exoml given number to call a number
 func Dial(c *echo.Context) error {
 	var number string
 	number = c.Param("number")
