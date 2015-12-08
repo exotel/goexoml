@@ -34,13 +34,13 @@ func (__gather__ *Gather) SetNumDigits(numdigits int) *Gather {
 }
 
 //SetSay sets Say for Gather struct instance
-func (__gather__ *Gather) SetSay(say Say) *Gather {
+func (__gather__ *Gather) SetSay(say *Say) *Gather {
 	__gather__.Say = say
 	return __gather__
 }
 
 //SetPlay sets Play for Gather struct instance
-func (__gather__ *Gather) SetPlay(play Play) *Gather {
+func (__gather__ *Gather) SetPlay(play *Play) *Gather {
 	__gather__.Play = play
 	return __gather__
 }
@@ -58,8 +58,8 @@ type IGather interface {
 	SetTimeout(timeout int) *Gather
 	SetFinishOnKey(finishonkey string) *Gather
 	SetNumDigits(numdigits int) *Gather
-	SetSay(say Say) *Gather
-	SetPlay(play Play) *Gather
+	SetSay(say *Say) *Gather
+	SetPlay(play *Play) *Gather
 }
 
 //AddGather appends the verb to response

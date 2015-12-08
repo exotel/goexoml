@@ -14,7 +14,7 @@ type Dial struct {
 	CallerID     string   `xml:"callerId,attr,omitempty"`
 	Record       bool     `xml:"record,attr,omitempty"`
 	PlainNumber  string   `xml:",innerxml"`
-	Number       Number   `xml:",innerxml"`
+	Number       *Number  `xml:",innerxml"`
 }
 
 //Hangup struct for the verb Hangup
@@ -74,8 +74,8 @@ type Gather struct {
 	Timeout     int      `xml:"timeout,attr,omitempty"`
 	FinishOnKey string   `xml:"finishOnKey,attr,omitempty"`
 	NumDigits   int      `xml:"numDigits,attr,omitempty"`
-	Say         Say      `xml:",innerxml"`
-	Play        Play     `xml:",innerxml"`
+	Say         *Say     `xml:",innerxml"`
+	Play        *Play    `xml:",innerxml"`
 }
 
 //Number struct for the noun Number

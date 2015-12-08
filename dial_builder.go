@@ -52,7 +52,7 @@ func (__dial__ *Dial) SetPlainNumber(plainnumber string) *Dial {
 }
 
 //SetNumber sets Number for Dial struct instance
-func (__dial__ *Dial) SetNumber(number Number) *Dial {
+func (__dial__ *Dial) SetNumber(number *Number) *Dial {
 	__dial__.Number = number
 	return __dial__
 }
@@ -73,7 +73,7 @@ type IDial interface {
 	SetCallerID(callerid string) *Dial
 	SetRecord(record bool) *Dial
 	SetPlainNumber(plainnumber string) *Dial
-	SetNumber(number Number) *Dial
+	SetNumber(number *Number) *Dial
 }
 
 //AddDial appends the verb to response
