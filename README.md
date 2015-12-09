@@ -105,6 +105,61 @@ func main() {
 }
 
 ```
+####What if i don't have go installed ?
+This is how you can install go in linux [this is for version 1.5.2 of golang]
+```
+wget https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz
+tar -C /usr/local -xzf go1.5.2.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
+```
+
+now you have go installed,try checking by checking the version
+```
+go version
+```
+
+Now you have to set the Workspace,say you are setting,~/go as the worksapce
+this is how it is done
+```
+export GOPATH=$HOME/go
+```
+
+Add these two  export statements in ~/.bashrc so that its set all the time
+Now you are ready to test goexoml,get the library using go get
+ie,
+```
+go get github.com/exotel/goexoml
+```
+
+
+Now you can copy paste the sample code server.go from example/server to a file ,say `path/to/file.go`
+The example program uses an external library for spawning http server intsll it as
+```
+go get github.com/labstack/echo
+```
+
+Run the server as
+
+```
+go run path/to/file.go
+```
+By now the exoml library would be running on port 1323
+
+Test it
+````
+curl http://localhost:1323/dial/+919742033616
+```
+
+This would return an exoml
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <Say>You can't handle the truth</Say>
+    <Dial>+919742033616</Dial>
+    <Hangup></Hangup>
+</Response
+```
+
 
 ####Versioning
 #####*major version Changes would mean following *
@@ -119,6 +174,7 @@ func main() {
 * Adding exposed names (function, method, type, etc)
 * Renaming a parameter or result of a function, method, or interface*
 * Some struct changes which does not directly affect the functionality of the library [*much*] but may/maynot add new features to the existing library
+
 
 
 
