@@ -31,7 +31,7 @@ var (
 	structName = flag.String("t", "", "The name of the struct for which the files has to be generated")
 )
 
-func getTempalte() (temp *template.Template, err error) {
+func getTemplate() (temp *template.Template, err error) {
 
 	var hanlder = `
 	// DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
@@ -41,9 +41,9 @@ func getTempalte() (temp *template.Template, err error) {
   {{$name := .Name}}
 	{{range $index, $field := .Fields}}
 	//Set{{$field.FieldName}} sets {{$field.FieldName}} for {{$name}} struct instance
-	func ({{$name | reciever}} *{{$name}}) Set{{$field.FieldName}}({{$field.FieldName | lower}} {{$field.FieldType}}) *{{$name}}{
-		{{$name | reciever}}.{{$field.FieldName}} = {{$field.FieldName | lower}}
-		return {{$name | reciever}}
+	func ({{$name | receiver}} *{{$name}}) Set{{$field.FieldName}}({{$field.FieldName | lower}} {{$field.FieldType}}) *{{$name}}{
+		{{$name | receiver}}.{{$field.FieldName}} = {{$field.FieldName | lower}}
+		return {{$name | receiver}}
 	}
 	{{end}}
 
@@ -68,7 +68,7 @@ func getTempalte() (temp *template.Template, err error) {
 	t := template.
 		Must(template.
 		New("builder").
-		Funcs(template.FuncMap{"lower": strings.ToLower, "reciever": func(s string) string { return "__" + strings.ToLower(s) + "__" }}).
+		Funcs(template.FuncMap{"lower": strings.ToLower, "receiver": func(s string) string { return "__" + strings.ToLower(s) + "__" }}).
 		Parse(hanlder))
 	temp = t
 	return
@@ -93,7 +93,8 @@ func generateCode(t *template.Template, str Struct) (code []byte, err error) {
 
 func generateBuilder(str Struct) (err error) {
 	var t *template.Template
-	t, err = getTempalte()
+	t, err = getTemplate()
+
 	if err != nil {
 		return
 	}

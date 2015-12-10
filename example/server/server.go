@@ -17,7 +17,7 @@ func Dial(c *echo.Context) error {
 	}
 	resp := goexoml.NewResponse()
 	say := goexoml.NewSay().SetText("You can't handle the truth")
-	dial := goexoml.NewDial().SetPlainNumber(number) //SetNumber(*(goexoml.NewNumber().SetNoun(number)))
+	dial := goexoml.NewDial().SetPlainNumber(number)
 	resp.AddSay(say).AddDial(dial).AddHangup(goexoml.NewHangup())
 	return c.XML(http.StatusOK, resp)
 }

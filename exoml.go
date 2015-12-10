@@ -74,8 +74,8 @@ import (
 //they are expected to be executed
 // if there is any invalid verb the function will repond with error but still Response would have all the other
 //verbs till the invalid one
-func (r *Response) Action(structs ...interface{}) error {
-	for _, s := range structs {
+func (r *Response) Action(verbs ...interface{}) error {
+	for _, s := range verbs {
 		switch s := s.(type) {
 		default:
 			return fmt.Errorf("non valid verb: '%T'", s)
