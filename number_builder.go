@@ -3,6 +3,12 @@
 
 package goexoml
 
+import (
+	"errors"
+)
+
+var _ = errors.New("_")
+
 //SetSendDigits sets SendDigits for Number struct instance
 func (__number__ *Number) SetSendDigits(senddigits string) *Number {
 	__number__.SendDigits = senddigits
@@ -45,6 +51,62 @@ func (__number__ *Number) SetNoun(noun string) *Number {
 	return __number__
 }
 
+//Setter returns setter function for the field given
+func (__number__ *Number) Setter(field string) (setter func(interface{}) (*Number, error)) {
+	switch field {
+	case "SendDigits":
+		setter = func(SendDigitsField interface{}) (*Number, error) {
+			if SendDigitsValue, ok := SendDigitsField.(string); ok {
+				return __number__.SetSendDigits(SendDigitsValue), nil
+			}
+			return nil, errors.New("Invalid type Expected string ")
+		}
+	case "URL":
+		setter = func(URLField interface{}) (*Number, error) {
+			if URLValue, ok := URLField.(string); ok {
+				return __number__.SetURL(URLValue), nil
+			}
+			return nil, errors.New("Invalid type Expected string ")
+		}
+	case "Method":
+		setter = func(MethodField interface{}) (*Number, error) {
+			if MethodValue, ok := MethodField.(string); ok {
+				return __number__.SetMethod(MethodValue), nil
+			}
+			return nil, errors.New("Invalid type Expected string ")
+		}
+	case "StatusCallbackEvent":
+		setter = func(StatusCallbackEventField interface{}) (*Number, error) {
+			if StatusCallbackEventValue, ok := StatusCallbackEventField.(string); ok {
+				return __number__.SetStatusCallbackEvent(StatusCallbackEventValue), nil
+			}
+			return nil, errors.New("Invalid type Expected string ")
+		}
+	case "StatusCallback":
+		setter = func(StatusCallbackField interface{}) (*Number, error) {
+			if StatusCallbackValue, ok := StatusCallbackField.(string); ok {
+				return __number__.SetStatusCallback(StatusCallbackValue), nil
+			}
+			return nil, errors.New("Invalid type Expected string ")
+		}
+	case "StatusCallbackMethod":
+		setter = func(StatusCallbackMethodField interface{}) (*Number, error) {
+			if StatusCallbackMethodValue, ok := StatusCallbackMethodField.(string); ok {
+				return __number__.SetStatusCallbackMethod(StatusCallbackMethodValue), nil
+			}
+			return nil, errors.New("Invalid type Expected string ")
+		}
+	case "Noun":
+		setter = func(NounField interface{}) (*Number, error) {
+			if NounValue, ok := NounField.(string); ok {
+				return __number__.SetNoun(NounValue), nil
+			}
+			return nil, errors.New("Invalid type Expected string ")
+		}
+	}
+	return
+}
+
 //NewNumber return a new Number pointer
 func NewNumber() *Number {
 	return new(Number)
@@ -60,6 +122,7 @@ type INumber interface {
 	SetStatusCallback(statuscallback string) *Number
 	SetStatusCallbackMethod(statuscallbackmethod string) *Number
 	SetNoun(noun string) *Number
+	Setter(string) func(interface{}) (*Number, error)
 }
 
 //AddNumber appends the verb to response

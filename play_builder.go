@@ -3,6 +3,12 @@
 
 package goexoml
 
+import (
+	"errors"
+)
+
+var _ = errors.New("_")
+
 //SetLoop sets Loop for Play struct instance
 func (__play__ *Play) SetLoop(loop int) *Play {
 	__play__.Loop = loop
@@ -21,6 +27,34 @@ func (__play__ *Play) SetURL(url string) *Play {
 	return __play__
 }
 
+//Setter returns setter function for the field given
+func (__play__ *Play) Setter(field string) (setter func(interface{}) (*Play, error)) {
+	switch field {
+	case "Loop":
+		setter = func(LoopField interface{}) (*Play, error) {
+			if LoopValue, ok := LoopField.(int); ok {
+				return __play__.SetLoop(LoopValue), nil
+			}
+			return nil, errors.New("Invalid type Expected int ")
+		}
+	case "Digits":
+		setter = func(DigitsField interface{}) (*Play, error) {
+			if DigitsValue, ok := DigitsField.(int); ok {
+				return __play__.SetDigits(DigitsValue), nil
+			}
+			return nil, errors.New("Invalid type Expected int ")
+		}
+	case "URL":
+		setter = func(URLField interface{}) (*Play, error) {
+			if URLValue, ok := URLField.(string); ok {
+				return __play__.SetURL(URLValue), nil
+			}
+			return nil, errors.New("Invalid type Expected string ")
+		}
+	}
+	return
+}
+
 //NewPlay return a new Play pointer
 func NewPlay() *Play {
 	return new(Play)
@@ -32,6 +66,7 @@ type IPlay interface {
 	SetLoop(loop int) *Play
 	SetDigits(digits int) *Play
 	SetURL(url string) *Play
+	Setter(string) func(interface{}) (*Play, error)
 }
 
 //AddPlay appends the verb to response

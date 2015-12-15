@@ -3,6 +3,12 @@
 
 package goexoml
 
+import (
+	"errors"
+)
+
+var _ = errors.New("_")
+
 //SetAction sets Action for Dial struct instance
 func (__dial__ *Dial) SetAction(action string) *Dial {
 	__dial__.Action = action
@@ -57,6 +63,76 @@ func (__dial__ *Dial) SetNumber(number *Number) *Dial {
 	return __dial__
 }
 
+//Setter returns setter function for the field given
+func (__dial__ *Dial) Setter(field string) (setter func(interface{}) (*Dial, error)) {
+	switch field {
+	case "Action":
+		setter = func(ActionField interface{}) (*Dial, error) {
+			if ActionValue, ok := ActionField.(string); ok {
+				return __dial__.SetAction(ActionValue), nil
+			}
+			return nil, errors.New("Invalid type Expected string ")
+		}
+	case "Method":
+		setter = func(MethodField interface{}) (*Dial, error) {
+			if MethodValue, ok := MethodField.(string); ok {
+				return __dial__.SetMethod(MethodValue), nil
+			}
+			return nil, errors.New("Invalid type Expected string ")
+		}
+	case "Timeout":
+		setter = func(TimeoutField interface{}) (*Dial, error) {
+			if TimeoutValue, ok := TimeoutField.(int); ok {
+				return __dial__.SetTimeout(TimeoutValue), nil
+			}
+			return nil, errors.New("Invalid type Expected int ")
+		}
+	case "HangupOnStar":
+		setter = func(HangupOnStarField interface{}) (*Dial, error) {
+			if HangupOnStarValue, ok := HangupOnStarField.(bool); ok {
+				return __dial__.SetHangupOnStar(HangupOnStarValue), nil
+			}
+			return nil, errors.New("Invalid type Expected bool ")
+		}
+	case "TimeLimit":
+		setter = func(TimeLimitField interface{}) (*Dial, error) {
+			if TimeLimitValue, ok := TimeLimitField.(int); ok {
+				return __dial__.SetTimeLimit(TimeLimitValue), nil
+			}
+			return nil, errors.New("Invalid type Expected int ")
+		}
+	case "CallerID":
+		setter = func(CallerIDField interface{}) (*Dial, error) {
+			if CallerIDValue, ok := CallerIDField.(string); ok {
+				return __dial__.SetCallerID(CallerIDValue), nil
+			}
+			return nil, errors.New("Invalid type Expected string ")
+		}
+	case "Record":
+		setter = func(RecordField interface{}) (*Dial, error) {
+			if RecordValue, ok := RecordField.(bool); ok {
+				return __dial__.SetRecord(RecordValue), nil
+			}
+			return nil, errors.New("Invalid type Expected bool ")
+		}
+	case "PlainNumber":
+		setter = func(PlainNumberField interface{}) (*Dial, error) {
+			if PlainNumberValue, ok := PlainNumberField.(string); ok {
+				return __dial__.SetPlainNumber(PlainNumberValue), nil
+			}
+			return nil, errors.New("Invalid type Expected string ")
+		}
+	case "Number":
+		setter = func(NumberField interface{}) (*Dial, error) {
+			if NumberValue, ok := NumberField.(*Number); ok {
+				return __dial__.SetNumber(NumberValue), nil
+			}
+			return nil, errors.New("Invalid type Expected *Number ")
+		}
+	}
+	return
+}
+
 //NewDial return a new Dial pointer
 func NewDial() *Dial {
 	return new(Dial)
@@ -74,6 +150,7 @@ type IDial interface {
 	SetRecord(record bool) *Dial
 	SetPlainNumber(plainnumber string) *Dial
 	SetNumber(number *Number) *Dial
+	Setter(string) func(interface{}) (*Dial, error)
 }
 
 //AddDial appends the verb to response

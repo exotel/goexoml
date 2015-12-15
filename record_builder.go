@@ -3,6 +3,12 @@
 
 package goexoml
 
+import (
+	"errors"
+)
+
+var _ = errors.New("_")
+
 //SetAction sets Action for Record struct instance
 func (__record__ *Record) SetAction(action string) *Record {
 	__record__.Action = action
@@ -57,6 +63,76 @@ func (__record__ *Record) SetTrim(trim string) *Record {
 	return __record__
 }
 
+//Setter returns setter function for the field given
+func (__record__ *Record) Setter(field string) (setter func(interface{}) (*Record, error)) {
+	switch field {
+	case "Action":
+		setter = func(ActionField interface{}) (*Record, error) {
+			if ActionValue, ok := ActionField.(string); ok {
+				return __record__.SetAction(ActionValue), nil
+			}
+			return nil, errors.New("Invalid type Expected string ")
+		}
+	case "Method":
+		setter = func(MethodField interface{}) (*Record, error) {
+			if MethodValue, ok := MethodField.(string); ok {
+				return __record__.SetMethod(MethodValue), nil
+			}
+			return nil, errors.New("Invalid type Expected string ")
+		}
+	case "Timeout":
+		setter = func(TimeoutField interface{}) (*Record, error) {
+			if TimeoutValue, ok := TimeoutField.(int); ok {
+				return __record__.SetTimeout(TimeoutValue), nil
+			}
+			return nil, errors.New("Invalid type Expected int ")
+		}
+	case "FinishOnKey":
+		setter = func(FinishOnKeyField interface{}) (*Record, error) {
+			if FinishOnKeyValue, ok := FinishOnKeyField.(string); ok {
+				return __record__.SetFinishOnKey(FinishOnKeyValue), nil
+			}
+			return nil, errors.New("Invalid type Expected string ")
+		}
+	case "MaxLength":
+		setter = func(MaxLengthField interface{}) (*Record, error) {
+			if MaxLengthValue, ok := MaxLengthField.(int); ok {
+				return __record__.SetMaxLength(MaxLengthValue), nil
+			}
+			return nil, errors.New("Invalid type Expected int ")
+		}
+	case "Transcribe":
+		setter = func(TranscribeField interface{}) (*Record, error) {
+			if TranscribeValue, ok := TranscribeField.(bool); ok {
+				return __record__.SetTranscribe(TranscribeValue), nil
+			}
+			return nil, errors.New("Invalid type Expected bool ")
+		}
+	case "TranscribeCallback":
+		setter = func(TranscribeCallbackField interface{}) (*Record, error) {
+			if TranscribeCallbackValue, ok := TranscribeCallbackField.(string); ok {
+				return __record__.SetTranscribeCallback(TranscribeCallbackValue), nil
+			}
+			return nil, errors.New("Invalid type Expected string ")
+		}
+	case "PlayBeep":
+		setter = func(PlayBeepField interface{}) (*Record, error) {
+			if PlayBeepValue, ok := PlayBeepField.(bool); ok {
+				return __record__.SetPlayBeep(PlayBeepValue), nil
+			}
+			return nil, errors.New("Invalid type Expected bool ")
+		}
+	case "Trim":
+		setter = func(TrimField interface{}) (*Record, error) {
+			if TrimValue, ok := TrimField.(string); ok {
+				return __record__.SetTrim(TrimValue), nil
+			}
+			return nil, errors.New("Invalid type Expected string ")
+		}
+	}
+	return
+}
+
 //NewRecord return a new Record pointer
 func NewRecord() *Record {
 	return new(Record)
@@ -74,6 +150,7 @@ type IRecord interface {
 	SetTranscribeCallback(transcribecallback string) *Record
 	SetPlayBeep(playbeep bool) *Record
 	SetTrim(trim string) *Record
+	Setter(string) func(interface{}) (*Record, error)
 }
 
 //AddRecord appends the verb to response

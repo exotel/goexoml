@@ -3,6 +3,12 @@
 
 package goexoml
 
+import (
+	"errors"
+)
+
+var _ = errors.New("_")
+
 //SetMethod sets Method for Redirect struct instance
 func (__redirect__ *Redirect) SetMethod(method string) *Redirect {
 	__redirect__.Method = method
@@ -15,6 +21,27 @@ func (__redirect__ *Redirect) SetURL(url string) *Redirect {
 	return __redirect__
 }
 
+//Setter returns setter function for the field given
+func (__redirect__ *Redirect) Setter(field string) (setter func(interface{}) (*Redirect, error)) {
+	switch field {
+	case "Method":
+		setter = func(MethodField interface{}) (*Redirect, error) {
+			if MethodValue, ok := MethodField.(string); ok {
+				return __redirect__.SetMethod(MethodValue), nil
+			}
+			return nil, errors.New("Invalid type Expected string ")
+		}
+	case "URL":
+		setter = func(URLField interface{}) (*Redirect, error) {
+			if URLValue, ok := URLField.(string); ok {
+				return __redirect__.SetURL(URLValue), nil
+			}
+			return nil, errors.New("Invalid type Expected string ")
+		}
+	}
+	return
+}
+
 //NewRedirect return a new Redirect pointer
 func NewRedirect() *Redirect {
 	return new(Redirect)
@@ -25,6 +52,7 @@ func NewRedirect() *Redirect {
 type IRedirect interface {
 	SetMethod(method string) *Redirect
 	SetURL(url string) *Redirect
+	Setter(string) func(interface{}) (*Redirect, error)
 }
 
 //AddRedirect appends the verb to response

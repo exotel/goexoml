@@ -3,6 +3,12 @@
 
 package goexoml
 
+import (
+	"errors"
+)
+
+var _ = errors.New("_")
+
 //SetAction sets Action for Gather struct instance
 func (__gather__ *Gather) SetAction(action string) *Gather {
 	__gather__.Action = action
@@ -45,6 +51,62 @@ func (__gather__ *Gather) SetPlay(play *Play) *Gather {
 	return __gather__
 }
 
+//Setter returns setter function for the field given
+func (__gather__ *Gather) Setter(field string) (setter func(interface{}) (*Gather, error)) {
+	switch field {
+	case "Action":
+		setter = func(ActionField interface{}) (*Gather, error) {
+			if ActionValue, ok := ActionField.(string); ok {
+				return __gather__.SetAction(ActionValue), nil
+			}
+			return nil, errors.New("Invalid type Expected string ")
+		}
+	case "Method":
+		setter = func(MethodField interface{}) (*Gather, error) {
+			if MethodValue, ok := MethodField.(string); ok {
+				return __gather__.SetMethod(MethodValue), nil
+			}
+			return nil, errors.New("Invalid type Expected string ")
+		}
+	case "Timeout":
+		setter = func(TimeoutField interface{}) (*Gather, error) {
+			if TimeoutValue, ok := TimeoutField.(int); ok {
+				return __gather__.SetTimeout(TimeoutValue), nil
+			}
+			return nil, errors.New("Invalid type Expected int ")
+		}
+	case "FinishOnKey":
+		setter = func(FinishOnKeyField interface{}) (*Gather, error) {
+			if FinishOnKeyValue, ok := FinishOnKeyField.(string); ok {
+				return __gather__.SetFinishOnKey(FinishOnKeyValue), nil
+			}
+			return nil, errors.New("Invalid type Expected string ")
+		}
+	case "NumDigits":
+		setter = func(NumDigitsField interface{}) (*Gather, error) {
+			if NumDigitsValue, ok := NumDigitsField.(int); ok {
+				return __gather__.SetNumDigits(NumDigitsValue), nil
+			}
+			return nil, errors.New("Invalid type Expected int ")
+		}
+	case "Say":
+		setter = func(SayField interface{}) (*Gather, error) {
+			if SayValue, ok := SayField.(*Say); ok {
+				return __gather__.SetSay(SayValue), nil
+			}
+			return nil, errors.New("Invalid type Expected *Say ")
+		}
+	case "Play":
+		setter = func(PlayField interface{}) (*Gather, error) {
+			if PlayValue, ok := PlayField.(*Play); ok {
+				return __gather__.SetPlay(PlayValue), nil
+			}
+			return nil, errors.New("Invalid type Expected *Play ")
+		}
+	}
+	return
+}
+
 //NewGather return a new Gather pointer
 func NewGather() *Gather {
 	return new(Gather)
@@ -60,6 +122,7 @@ type IGather interface {
 	SetNumDigits(numdigits int) *Gather
 	SetSay(say *Say) *Gather
 	SetPlay(play *Play) *Gather
+	Setter(string) func(interface{}) (*Gather, error)
 }
 
 //AddGather appends the verb to response
