@@ -1,4 +1,6 @@
 ### goexoml [![GoDoc](https://godoc.org/gopkg.in/exotel/goexoml.v1?status.svg)](https://godoc.org/gopkg.in/exotel/goexoml.v1)
+
+[![Join the chat at https://gitter.im/exotel/goexoml](https://badges.gitter.im/exotel/goexoml.svg)](https://gitter.im/exotel/goexoml?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 The `ExoML` library for golang
 
 ####What is it?
