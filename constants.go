@@ -1,6 +1,6 @@
 package goexoml
 
-//Constants for CallStatus
+//CallStatus has the Constants for CallStatus String
 var CallStatus = struct {
 	EXOQueued     string
 	EXORinging    string
