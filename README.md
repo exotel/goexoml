@@ -1,9 +1,9 @@
 ### goexoml [![GoDoc](https://godoc.org/gopkg.in/exotel/goexoml.v1?status.svg)](https://godoc.org/gopkg.in/exotel/goexoml.v1) &nbsp;[![Join the chat at https://gitter.im/exotel/goexoml](https://badges.gitter.im/exotel/goexoml.svg)](https://gitter.im/exotel/goexoml?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
-The `ExoML` library for golang
+The **`ExoML`** library for golang
 
-####What is it?
+#### What is it?
   goexoml is the official ExoML library written in golang. <br>**ExoML** (ExotelMarkupLanguage) enables one to add logic to calls.When someone makes a call  to an *exophone* ,Exotel will look up the URL associated with *exophone* and make a request to that URL.
 	The URL can be configured to respond with ExoMLs Responses,which exotel interprets and executes
 
@@ -12,7 +12,7 @@ For Example
 
 The following will be interpreted by exotel as a request to make a call to the number +919742033616 and makes call
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
 	<Dial>
@@ -24,7 +24,7 @@ The following will be interpreted by exotel as a request to make a call to the n
 
 ```
 
-####currently supported verbs
+#### currently supported verbs
 * Dial  
 * Hangup
 * Play
@@ -34,20 +34,20 @@ The following will be interpreted by exotel as a request to make a call to the n
 * Gather
 
 
-####how to use
+#### how to use
 Install the latest library using `go get`
-```
+```sh
 go get github.com/exotel/goexoml
 ```
 
 or  from the gopkg repo to make sure the version number is maintained all time
-```
+```sh
 go get gopkg.in/exotel/goexoml.v1 //for v1.x.x
 ```
 
 
-###sample Code
-```
+### sample Code
+```go
 package main
 
 import (
@@ -107,53 +107,55 @@ func main() {
 }
 
 ```
-####What if i don't have go installed ?
-This is how you can install go in linux [this is for version 1.5.2 of golang]
+#### What if i don't have go installed ?
+This is how you can install go in linux [this is for version 1.10 of golang]
 ```
-wget https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz
-tar -C /usr/local -xzf go1.5.2.linux-amd64.tar.gz
+wget https://storage.googleapis.com/golang/go1.10.linux-amd64.tar.gz
+tar -C /usr/local -xzf go1.10.linux-amd64.tar.gz
 export PATH=$PATH:/usr/local/go/bin
-```
-
-now you have go installed,try checking by checking the version
-```
-go version
 ```
 
 Now you have to set the Workspace,say you are setting,~/go as the worksapce
 this is how it is done
 ```
+export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 ```
-
 Add these two  export statements in ~/.bashrc so that its set all the time
+
+
+now you have go installed,try checking by checking the version
+```
+go version
+```
 Now you are ready to test goexoml,get the library using go get
 ie,
-```
+```sh
 go get github.com/exotel/goexoml
 ```
 
 
 Now you can copy paste the sample code server.go from example/server to a file ,say `path/to/file.go`
 The example program uses an external library for spawning http server intsll it as
-```
+```sh
 go get github.com/labstack/echo
 ```
 
 Run the server as
 
-```
+```sh
 go run path/to/file.go
 ```
+
 By now the exoml library would be running on port 1323
 
-Test it
-````
+```sh
 curl http://localhost:1323/dial/+919742033616
 ```
 
 This would return an exoml
-```
+
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
     <Say>You can't handle the truth</Say>
@@ -163,8 +165,8 @@ This would return an exoml
 ```
 
 
-####Versioning
-#####*major version Changes would mean following *
+#### Versioning
+##### *major version Changes would mean following *
 * Removing or renaming *any* exposed name (function, method, type, etc)
 * Adding, removing or renaming methods in an interface
 * Adding a parameter to a function, method, or interface
@@ -172,7 +174,7 @@ This would return an exoml
 * Changing the number of results in a function, method, or interface
 * Some user facing struct changes
 
-#####*expect these changes even without major version being same *
+##### *expect these changes even without major version being same *
 * Adding exposed names (function, method, type, etc)
 * Renaming a parameter or result of a function, method, or interface*
 * Some struct changes which does not directly affect the functionality of the library [*much*] but may/maynot add new features to the existing library
@@ -181,5 +183,5 @@ This would return an exoml
 
 
 
-####contributions
+#### contributions
 sarath@exotel.in
