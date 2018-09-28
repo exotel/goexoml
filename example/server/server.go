@@ -9,7 +9,7 @@ import (
 )
 
 //Dial returns an exoml given number to call a number
-func Dial(c *echo.Context) error {
+func Dial(c echo.Context) error {
 	var number string
 	number = c.Param("number")
 	if number == "" {
@@ -30,7 +30,7 @@ func main() {
 	e.Use(mw.Recover())
 
 	// Routes
-	e.Get("/dial/:number", Dial)
+	e.GET("/dial/:number", Dial)
 	// Start server
-	e.Run(":1323")
+	e.Start(":1323")
 }
