@@ -1,4 +1,4 @@
-### goexoml [![GoDoc](https://godoc.org/gopkg.in/exotel/goexoml.v1?status.svg)](https://godoc.org/gopkg.in/exotel/goexoml.v1) &nbsp;[![Join the chat at https://gitter.im/exotel/goexoml](https://badges.gitter.im/exotel/goexoml.svg)](https://gitter.im/exotel/goexoml?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+### goexoml [![GoDoc](https://godoc.org/gopkg.in/exotel/goexoml.v1?status.svg)](https://godoc.org/gopkg.in/exotel/goexoml.v1) &nbsp;[![Join the chat at https://gitter.im/exotel/goexoml](https://badges.gitter.im/exotel/goexoml.svg)](https://gitter.im/exotel/goexoml?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Go Report Card](https://goreportcard.com/badge/github.com/exotel/goexoml)](https://goreportcard.com/report/github.com/exotel/goexoml)
 
 
 The **`ExoML`** library for golang
