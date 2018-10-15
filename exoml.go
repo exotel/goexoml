@@ -55,7 +55,7 @@
 //	 func main() {
 //	 	exoml, err := Example()
 //	 	if err != nil {
-//	 		fmt.Print("Error occured :", err.Error())
+//	 		fmt.Print("Error occurred :", err.Error())
 //	 		return
 //	 	}
 //	 	fmt.Println(exoml)
