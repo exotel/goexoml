@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"bytes"
 	"flag"
-	"fmt"
 	"go/ast"
 	"go/format"
 	"go/parser"
@@ -105,7 +104,6 @@ func generateCode(t *template.Template, str Struct) (code []byte, err error) {
 	if err != nil {
 		return
 	}
-	fmt.Println(string(bW.Bytes()))
 	//format the bytes from bufffer
 	code, err = format.Source(bW.Bytes())
 	return
