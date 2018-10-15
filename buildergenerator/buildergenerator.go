@@ -84,12 +84,14 @@ func getTemplate() (temp *template.Template, err error) {
 	// Create a new template and parse the letter into it.
 	t := template.
 		Must(template.
-		New("builder").
-		Funcs(template.FuncMap{"lower": strings.ToLower, "receiver": func(s string) string { return "__" + strings.ToLower(s) + "__" }}).
-		Parse(handler))
+			New("builder").
+			Funcs(template.FuncMap{
+				"lower":    strings.ToLower,
+				"receiver": func(s string) string { return strings.ToLower(s) + "Receiver" },
+			}).
+			Parse(handler))
 	temp = t
 	return
-
 }
 
 func generateCode(t *template.Template, str Struct) (code []byte, err error) {

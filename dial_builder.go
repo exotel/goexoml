@@ -9,123 +9,123 @@ import (
 
 var _ = errors.New("_")
 
-//SetAction sets Action for Dial struct instance
-func (__dial__ *Dial) SetAction(action string) *Dial {
-	__dial__.Action = action
-	return __dial__
+// SetAction sets Action for Dial struct instance
+func (dialReceiver *Dial) SetAction(action string) *Dial {
+	dialReceiver.Action = action
+	return dialReceiver
 }
 
-//SetMethod sets Method for Dial struct instance
-func (__dial__ *Dial) SetMethod(method string) *Dial {
-	__dial__.Method = method
-	return __dial__
+// SetMethod sets Method for Dial struct instance
+func (dialReceiver *Dial) SetMethod(method string) *Dial {
+	dialReceiver.Method = method
+	return dialReceiver
 }
 
-//SetTimeout sets Timeout for Dial struct instance
-func (__dial__ *Dial) SetTimeout(timeout int) *Dial {
-	__dial__.Timeout = timeout
-	return __dial__
+// SetTimeout sets Timeout for Dial struct instance
+func (dialReceiver *Dial) SetTimeout(timeout int) *Dial {
+	dialReceiver.Timeout = timeout
+	return dialReceiver
 }
 
-//SetHangupOnStar sets HangupOnStar for Dial struct instance
-func (__dial__ *Dial) SetHangupOnStar(hanguponstar bool) *Dial {
-	__dial__.HangupOnStar = hanguponstar
-	return __dial__
+// SetHangupOnStar sets HangupOnStar for Dial struct instance
+func (dialReceiver *Dial) SetHangupOnStar(hanguponstar bool) *Dial {
+	dialReceiver.HangupOnStar = hanguponstar
+	return dialReceiver
 }
 
-//SetTimeLimit sets TimeLimit for Dial struct instance
-func (__dial__ *Dial) SetTimeLimit(timelimit int) *Dial {
-	__dial__.TimeLimit = timelimit
-	return __dial__
+// SetTimeLimit sets TimeLimit for Dial struct instance
+func (dialReceiver *Dial) SetTimeLimit(timelimit int) *Dial {
+	dialReceiver.TimeLimit = timelimit
+	return dialReceiver
 }
 
-//SetCallerID sets CallerID for Dial struct instance
-func (__dial__ *Dial) SetCallerID(callerid string) *Dial {
-	__dial__.CallerID = callerid
-	return __dial__
+// SetCallerID sets CallerID for Dial struct instance
+func (dialReceiver *Dial) SetCallerID(callerid string) *Dial {
+	dialReceiver.CallerID = callerid
+	return dialReceiver
 }
 
-//SetRecord sets Record for Dial struct instance
-func (__dial__ *Dial) SetRecord(record bool) *Dial {
-	__dial__.Record = record
-	return __dial__
+// SetRecord sets Record for Dial struct instance
+func (dialReceiver *Dial) SetRecord(record bool) *Dial {
+	dialReceiver.Record = record
+	return dialReceiver
 }
 
-//SetPlainNumber sets PlainNumber for Dial struct instance
-func (__dial__ *Dial) SetPlainNumber(plainnumber string) *Dial {
-	__dial__.PlainNumber = plainnumber
-	return __dial__
+// SetPlainNumber sets PlainNumber for Dial struct instance
+func (dialReceiver *Dial) SetPlainNumber(plainnumber string) *Dial {
+	dialReceiver.PlainNumber = plainnumber
+	return dialReceiver
 }
 
-//SetNumber sets Number for Dial struct instance
-func (__dial__ *Dial) SetNumber(number *Number) *Dial {
-	__dial__.Number = number
-	return __dial__
+// SetNumber sets Number for Dial struct instance
+func (dialReceiver *Dial) SetNumber(number *Number) *Dial {
+	dialReceiver.Number = number
+	return dialReceiver
 }
 
-//Setter returns setter function for the field given
-func (__dial__ *Dial) Setter(field string) (setter func(interface{}) (*Dial, error)) {
+// Setter returns setter function for the field given
+func (dialReceiver *Dial) Setter(field string) (setter func(interface{}) (*Dial, error)) {
 	switch field {
 	case "Action":
 		setter = func(ActionField interface{}) (*Dial, error) {
 			if ActionValue, ok := ActionField.(string); ok {
-				return __dial__.SetAction(ActionValue), nil
+				return dialReceiver.SetAction(ActionValue), nil
 			}
 			return nil, errors.New("Invalid type Expected string ")
 		}
 	case "Method":
 		setter = func(MethodField interface{}) (*Dial, error) {
 			if MethodValue, ok := MethodField.(string); ok {
-				return __dial__.SetMethod(MethodValue), nil
+				return dialReceiver.SetMethod(MethodValue), nil
 			}
 			return nil, errors.New("Invalid type Expected string ")
 		}
 	case "Timeout":
 		setter = func(TimeoutField interface{}) (*Dial, error) {
 			if TimeoutValue, ok := TimeoutField.(int); ok {
-				return __dial__.SetTimeout(TimeoutValue), nil
+				return dialReceiver.SetTimeout(TimeoutValue), nil
 			}
 			return nil, errors.New("Invalid type Expected int ")
 		}
 	case "HangupOnStar":
 		setter = func(HangupOnStarField interface{}) (*Dial, error) {
 			if HangupOnStarValue, ok := HangupOnStarField.(bool); ok {
-				return __dial__.SetHangupOnStar(HangupOnStarValue), nil
+				return dialReceiver.SetHangupOnStar(HangupOnStarValue), nil
 			}
 			return nil, errors.New("Invalid type Expected bool ")
 		}
 	case "TimeLimit":
 		setter = func(TimeLimitField interface{}) (*Dial, error) {
 			if TimeLimitValue, ok := TimeLimitField.(int); ok {
-				return __dial__.SetTimeLimit(TimeLimitValue), nil
+				return dialReceiver.SetTimeLimit(TimeLimitValue), nil
 			}
 			return nil, errors.New("Invalid type Expected int ")
 		}
 	case "CallerID":
 		setter = func(CallerIDField interface{}) (*Dial, error) {
 			if CallerIDValue, ok := CallerIDField.(string); ok {
-				return __dial__.SetCallerID(CallerIDValue), nil
+				return dialReceiver.SetCallerID(CallerIDValue), nil
 			}
 			return nil, errors.New("Invalid type Expected string ")
 		}
 	case "Record":
 		setter = func(RecordField interface{}) (*Dial, error) {
 			if RecordValue, ok := RecordField.(bool); ok {
-				return __dial__.SetRecord(RecordValue), nil
+				return dialReceiver.SetRecord(RecordValue), nil
 			}
 			return nil, errors.New("Invalid type Expected bool ")
 		}
 	case "PlainNumber":
 		setter = func(PlainNumberField interface{}) (*Dial, error) {
 			if PlainNumberValue, ok := PlainNumberField.(string); ok {
-				return __dial__.SetPlainNumber(PlainNumberValue), nil
+				return dialReceiver.SetPlainNumber(PlainNumberValue), nil
 			}
 			return nil, errors.New("Invalid type Expected string ")
 		}
 	case "Number":
 		setter = func(NumberField interface{}) (*Dial, error) {
 			if NumberValue, ok := NumberField.(*Number); ok {
-				return __dial__.SetNumber(NumberValue), nil
+				return dialReceiver.SetNumber(NumberValue), nil
 			}
 			return nil, errors.New("Invalid type Expected *Number ")
 		}
@@ -133,13 +133,13 @@ func (__dial__ *Dial) Setter(field string) (setter func(interface{}) (*Dial, err
 	return
 }
 
-//NewDial return a new Dial pointer
+// NewDial return a new Dial pointer
 func NewDial() *Dial {
 	return new(Dial)
 }
 
-//IDial The interface that satisfies all the methods for this struct
-//IDial asserts implementation of setters for all the fields of Dial
+// IDial The interface that satisfies all the methods for this struct
+// IDial asserts implementation of setters for all the fields of Dial
 type IDial interface {
 	SetAction(action string) *Dial
 	SetMethod(method string) *Dial
@@ -153,7 +153,7 @@ type IDial interface {
 	Setter(string) func(interface{}) (*Dial, error)
 }
 
-//AddDial appends the verb to response
+// AddDial appends the verb to response
 func (r *Response) AddDial(dial IDial) *Response {
 	r.Response = append(r.Response, dial)
 	return r

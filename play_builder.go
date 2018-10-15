@@ -9,45 +9,45 @@ import (
 
 var _ = errors.New("_")
 
-//SetLoop sets Loop for Play struct instance
-func (__play__ *Play) SetLoop(loop int) *Play {
-	__play__.Loop = loop
-	return __play__
+// SetLoop sets Loop for Play struct instance
+func (playReceiver *Play) SetLoop(loop int) *Play {
+	playReceiver.Loop = loop
+	return playReceiver
 }
 
-//SetDigits sets Digits for Play struct instance
-func (__play__ *Play) SetDigits(digits int) *Play {
-	__play__.Digits = digits
-	return __play__
+// SetDigits sets Digits for Play struct instance
+func (playReceiver *Play) SetDigits(digits int) *Play {
+	playReceiver.Digits = digits
+	return playReceiver
 }
 
-//SetURL sets URL for Play struct instance
-func (__play__ *Play) SetURL(url string) *Play {
-	__play__.URL = url
-	return __play__
+// SetURL sets URL for Play struct instance
+func (playReceiver *Play) SetURL(url string) *Play {
+	playReceiver.URL = url
+	return playReceiver
 }
 
-//Setter returns setter function for the field given
-func (__play__ *Play) Setter(field string) (setter func(interface{}) (*Play, error)) {
+// Setter returns setter function for the field given
+func (playReceiver *Play) Setter(field string) (setter func(interface{}) (*Play, error)) {
 	switch field {
 	case "Loop":
 		setter = func(LoopField interface{}) (*Play, error) {
 			if LoopValue, ok := LoopField.(int); ok {
-				return __play__.SetLoop(LoopValue), nil
+				return playReceiver.SetLoop(LoopValue), nil
 			}
 			return nil, errors.New("Invalid type Expected int ")
 		}
 	case "Digits":
 		setter = func(DigitsField interface{}) (*Play, error) {
 			if DigitsValue, ok := DigitsField.(int); ok {
-				return __play__.SetDigits(DigitsValue), nil
+				return playReceiver.SetDigits(DigitsValue), nil
 			}
 			return nil, errors.New("Invalid type Expected int ")
 		}
 	case "URL":
 		setter = func(URLField interface{}) (*Play, error) {
 			if URLValue, ok := URLField.(string); ok {
-				return __play__.SetURL(URLValue), nil
+				return playReceiver.SetURL(URLValue), nil
 			}
 			return nil, errors.New("Invalid type Expected string ")
 		}
@@ -55,13 +55,13 @@ func (__play__ *Play) Setter(field string) (setter func(interface{}) (*Play, err
 	return
 }
 
-//NewPlay return a new Play pointer
+// NewPlay return a new Play pointer
 func NewPlay() *Play {
 	return new(Play)
 }
 
-//IPlay The interface that satisfies all the methods for this struct
-//IPlay asserts implementation of setters for all the fields of Play
+// IPlay The interface that satisfies all the methods for this struct
+// IPlay asserts implementation of setters for all the fields of Play
 type IPlay interface {
 	SetLoop(loop int) *Play
 	SetDigits(digits int) *Play
@@ -69,7 +69,7 @@ type IPlay interface {
 	Setter(string) func(interface{}) (*Play, error)
 }
 
-//AddPlay appends the verb to response
+// AddPlay appends the verb to response
 func (r *Response) AddPlay(play IPlay) *Response {
 	r.Response = append(r.Response, play)
 	return r

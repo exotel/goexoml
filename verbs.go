@@ -2,7 +2,7 @@ package goexoml
 
 import "encoding/xml"
 
-//Dial struct for the verb Dial which allows a number as plain test
+// Dial struct for the verb Dial which allows a number as plain test
 //go:generate buildergenerator -t Dial -f $GOFILE
 type Dial struct {
 	XMLName      xml.Name `xml:"Dial"`
@@ -17,13 +17,13 @@ type Dial struct {
 	Number       *Number  `xml:",innerxml"`
 }
 
-//Hangup struct for the verb Hangup
+// Hangup struct for the verb Hangup
 //go:generate buildergenerator -t Hangup -f $GOFILE
 type Hangup struct {
 	XMLName xml.Name `xml:"Hangup"`
 }
 
-//Play struct for the verb Play
+// Play struct for the verb Play
 //go:generate buildergenerator -t Play -f $GOFILE
 type Play struct {
 	XMLName xml.Name `xml:"Play"`
@@ -32,7 +32,7 @@ type Play struct {
 	URL     string   `xml:",innerxml"`
 }
 
-//Record struct for the verb Record
+// Record struct for the verb Record
 //go:generate buildergenerator -t Record -f $GOFILE
 type Record struct {
 	XMLName            xml.Name `xml:"Record"`
@@ -47,7 +47,7 @@ type Record struct {
 	Trim               string   `xml:"trim,attr,omitempty"`
 }
 
-//Redirect struct for the verb Redirect
+// Redirect struct for the verb Redirect
 //go:generate buildergenerator -t Redirect -f $GOFILE
 type Redirect struct {
 	XMLName xml.Name `xml:"Redirect"`
@@ -55,7 +55,7 @@ type Redirect struct {
 	URL     string   `xml:",innerxml"`
 }
 
-//Say struct for the verb Say
+// Say struct for the verb Say
 //go:generate buildergenerator -t Say -f $GOFILE
 type Say struct {
 	XMLName  xml.Name `xml:"Say"`
@@ -65,7 +65,7 @@ type Say struct {
 	Text     string   `xml:",innerxml"`
 }
 
-//Gather struct for the verb Gather
+// Gather struct for the verb Gather
 //go:generate buildergenerator -t Gather -f $GOFILE
 type Gather struct {
 	XMLName     xml.Name `xml:"Gather"`
@@ -78,7 +78,7 @@ type Gather struct {
 	Play        *Play    `xml:",innerxml"`
 }
 
-//Number struct for the noun Number
+// Number struct for the noun Number
 //go:generate buildergenerator -t Number -f $GOFILE
 type Number struct {
 	XMLName              xml.Name `xml:"Number"`

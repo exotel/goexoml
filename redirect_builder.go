@@ -9,32 +9,32 @@ import (
 
 var _ = errors.New("_")
 
-//SetMethod sets Method for Redirect struct instance
-func (__redirect__ *Redirect) SetMethod(method string) *Redirect {
-	__redirect__.Method = method
-	return __redirect__
+// SetMethod sets Method for Redirect struct instance
+func (redirectReceiver *Redirect) SetMethod(method string) *Redirect {
+	redirectReceiver.Method = method
+	return redirectReceiver
 }
 
-//SetURL sets URL for Redirect struct instance
-func (__redirect__ *Redirect) SetURL(url string) *Redirect {
-	__redirect__.URL = url
-	return __redirect__
+// SetURL sets URL for Redirect struct instance
+func (redirectReceiver *Redirect) SetURL(url string) *Redirect {
+	redirectReceiver.URL = url
+	return redirectReceiver
 }
 
-//Setter returns setter function for the field given
-func (__redirect__ *Redirect) Setter(field string) (setter func(interface{}) (*Redirect, error)) {
+// Setter returns setter function for the field given
+func (redirectReceiver *Redirect) Setter(field string) (setter func(interface{}) (*Redirect, error)) {
 	switch field {
 	case "Method":
 		setter = func(MethodField interface{}) (*Redirect, error) {
 			if MethodValue, ok := MethodField.(string); ok {
-				return __redirect__.SetMethod(MethodValue), nil
+				return redirectReceiver.SetMethod(MethodValue), nil
 			}
 			return nil, errors.New("Invalid type Expected string ")
 		}
 	case "URL":
 		setter = func(URLField interface{}) (*Redirect, error) {
 			if URLValue, ok := URLField.(string); ok {
-				return __redirect__.SetURL(URLValue), nil
+				return redirectReceiver.SetURL(URLValue), nil
 			}
 			return nil, errors.New("Invalid type Expected string ")
 		}
@@ -42,20 +42,20 @@ func (__redirect__ *Redirect) Setter(field string) (setter func(interface{}) (*R
 	return
 }
 
-//NewRedirect return a new Redirect pointer
+// NewRedirect return a new Redirect pointer
 func NewRedirect() *Redirect {
 	return new(Redirect)
 }
 
-//IRedirect The interface that satisfies all the methods for this struct
-//IRedirect asserts implementation of setters for all the fields of Redirect
+// IRedirect The interface that satisfies all the methods for this struct
+// IRedirect asserts implementation of setters for all the fields of Redirect
 type IRedirect interface {
 	SetMethod(method string) *Redirect
 	SetURL(url string) *Redirect
 	Setter(string) func(interface{}) (*Redirect, error)
 }
 
-//AddRedirect appends the verb to response
+// AddRedirect appends the verb to response
 func (r *Response) AddRedirect(redirect IRedirect) *Response {
 	r.Response = append(r.Response, redirect)
 	return r

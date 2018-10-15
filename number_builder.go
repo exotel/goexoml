@@ -9,97 +9,97 @@ import (
 
 var _ = errors.New("_")
 
-//SetSendDigits sets SendDigits for Number struct instance
-func (__number__ *Number) SetSendDigits(senddigits string) *Number {
-	__number__.SendDigits = senddigits
-	return __number__
+// SetSendDigits sets SendDigits for Number struct instance
+func (numberReceiver *Number) SetSendDigits(senddigits string) *Number {
+	numberReceiver.SendDigits = senddigits
+	return numberReceiver
 }
 
-//SetURL sets URL for Number struct instance
-func (__number__ *Number) SetURL(url string) *Number {
-	__number__.URL = url
-	return __number__
+// SetURL sets URL for Number struct instance
+func (numberReceiver *Number) SetURL(url string) *Number {
+	numberReceiver.URL = url
+	return numberReceiver
 }
 
-//SetMethod sets Method for Number struct instance
-func (__number__ *Number) SetMethod(method string) *Number {
-	__number__.Method = method
-	return __number__
+// SetMethod sets Method for Number struct instance
+func (numberReceiver *Number) SetMethod(method string) *Number {
+	numberReceiver.Method = method
+	return numberReceiver
 }
 
-//SetStatusCallbackEvent sets StatusCallbackEvent for Number struct instance
-func (__number__ *Number) SetStatusCallbackEvent(statuscallbackevent string) *Number {
-	__number__.StatusCallbackEvent = statuscallbackevent
-	return __number__
+// SetStatusCallbackEvent sets StatusCallbackEvent for Number struct instance
+func (numberReceiver *Number) SetStatusCallbackEvent(statuscallbackevent string) *Number {
+	numberReceiver.StatusCallbackEvent = statuscallbackevent
+	return numberReceiver
 }
 
-//SetStatusCallback sets StatusCallback for Number struct instance
-func (__number__ *Number) SetStatusCallback(statuscallback string) *Number {
-	__number__.StatusCallback = statuscallback
-	return __number__
+// SetStatusCallback sets StatusCallback for Number struct instance
+func (numberReceiver *Number) SetStatusCallback(statuscallback string) *Number {
+	numberReceiver.StatusCallback = statuscallback
+	return numberReceiver
 }
 
-//SetStatusCallbackMethod sets StatusCallbackMethod for Number struct instance
-func (__number__ *Number) SetStatusCallbackMethod(statuscallbackmethod string) *Number {
-	__number__.StatusCallbackMethod = statuscallbackmethod
-	return __number__
+// SetStatusCallbackMethod sets StatusCallbackMethod for Number struct instance
+func (numberReceiver *Number) SetStatusCallbackMethod(statuscallbackmethod string) *Number {
+	numberReceiver.StatusCallbackMethod = statuscallbackmethod
+	return numberReceiver
 }
 
-//SetNoun sets Noun for Number struct instance
-func (__number__ *Number) SetNoun(noun string) *Number {
-	__number__.Noun = noun
-	return __number__
+// SetNoun sets Noun for Number struct instance
+func (numberReceiver *Number) SetNoun(noun string) *Number {
+	numberReceiver.Noun = noun
+	return numberReceiver
 }
 
-//Setter returns setter function for the field given
-func (__number__ *Number) Setter(field string) (setter func(interface{}) (*Number, error)) {
+// Setter returns setter function for the field given
+func (numberReceiver *Number) Setter(field string) (setter func(interface{}) (*Number, error)) {
 	switch field {
 	case "SendDigits":
 		setter = func(SendDigitsField interface{}) (*Number, error) {
 			if SendDigitsValue, ok := SendDigitsField.(string); ok {
-				return __number__.SetSendDigits(SendDigitsValue), nil
+				return numberReceiver.SetSendDigits(SendDigitsValue), nil
 			}
 			return nil, errors.New("Invalid type Expected string ")
 		}
 	case "URL":
 		setter = func(URLField interface{}) (*Number, error) {
 			if URLValue, ok := URLField.(string); ok {
-				return __number__.SetURL(URLValue), nil
+				return numberReceiver.SetURL(URLValue), nil
 			}
 			return nil, errors.New("Invalid type Expected string ")
 		}
 	case "Method":
 		setter = func(MethodField interface{}) (*Number, error) {
 			if MethodValue, ok := MethodField.(string); ok {
-				return __number__.SetMethod(MethodValue), nil
+				return numberReceiver.SetMethod(MethodValue), nil
 			}
 			return nil, errors.New("Invalid type Expected string ")
 		}
 	case "StatusCallbackEvent":
 		setter = func(StatusCallbackEventField interface{}) (*Number, error) {
 			if StatusCallbackEventValue, ok := StatusCallbackEventField.(string); ok {
-				return __number__.SetStatusCallbackEvent(StatusCallbackEventValue), nil
+				return numberReceiver.SetStatusCallbackEvent(StatusCallbackEventValue), nil
 			}
 			return nil, errors.New("Invalid type Expected string ")
 		}
 	case "StatusCallback":
 		setter = func(StatusCallbackField interface{}) (*Number, error) {
 			if StatusCallbackValue, ok := StatusCallbackField.(string); ok {
-				return __number__.SetStatusCallback(StatusCallbackValue), nil
+				return numberReceiver.SetStatusCallback(StatusCallbackValue), nil
 			}
 			return nil, errors.New("Invalid type Expected string ")
 		}
 	case "StatusCallbackMethod":
 		setter = func(StatusCallbackMethodField interface{}) (*Number, error) {
 			if StatusCallbackMethodValue, ok := StatusCallbackMethodField.(string); ok {
-				return __number__.SetStatusCallbackMethod(StatusCallbackMethodValue), nil
+				return numberReceiver.SetStatusCallbackMethod(StatusCallbackMethodValue), nil
 			}
 			return nil, errors.New("Invalid type Expected string ")
 		}
 	case "Noun":
 		setter = func(NounField interface{}) (*Number, error) {
 			if NounValue, ok := NounField.(string); ok {
-				return __number__.SetNoun(NounValue), nil
+				return numberReceiver.SetNoun(NounValue), nil
 			}
 			return nil, errors.New("Invalid type Expected string ")
 		}
@@ -107,13 +107,13 @@ func (__number__ *Number) Setter(field string) (setter func(interface{}) (*Numbe
 	return
 }
 
-//NewNumber return a new Number pointer
+// NewNumber return a new Number pointer
 func NewNumber() *Number {
 	return new(Number)
 }
 
-//INumber The interface that satisfies all the methods for this struct
-//INumber asserts implementation of setters for all the fields of Number
+// INumber The interface that satisfies all the methods for this struct
+// INumber asserts implementation of setters for all the fields of Number
 type INumber interface {
 	SetSendDigits(senddigits string) *Number
 	SetURL(url string) *Number
@@ -125,7 +125,7 @@ type INumber interface {
 	Setter(string) func(interface{}) (*Number, error)
 }
 
-//AddNumber appends the verb to response
+// AddNumber appends the verb to response
 func (r *Response) AddNumber(number INumber) *Response {
 	r.Response = append(r.Response, number)
 	return r
