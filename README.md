@@ -15,11 +15,11 @@ The following will be interpreted by exotel as a request to make a call to the n
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-	<Dial>
-			<Number>
-					+919742033616
-			</Number>
-	</Dial>
+ <Dial>
+   <Number>
+     +919742033616
+   </Number>
+ </Dial>
 </Response>
 
 ```
@@ -81,7 +81,7 @@ func Example() (string, error) {
 	//create a new say verb and add attributes and values
 	say2 := goexoml.NewSay().SetText("I did not receive a recording.")
 
-	//create the recors vberb and add attributes
+	//create the record verb and add attributes
 	rec := goexoml.NewRecord().SetAction("http://example.exotel.in/handleRecording").SetMethod("GET").SetMaxLength(20)
 
 	//Add the Action verbs to the response object in expected order
@@ -107,47 +107,23 @@ func main() {
 }
 
 ```
+
 #### What if i don't have go installed ?
-This is how you can install go in linux [this is for version 1.10 of golang]
-```
-wget https://storage.googleapis.com/golang/go1.10.linux-amd64.tar.gz
-tar -C /usr/local -xzf go1.10.linux-amd64.tar.gz
-export PATH=$PATH:/usr/local/go/bin
-```
+Follow the instructions [here](https://golang.org/doc/install) to install go 
 
-Now you have to set the Workspace,say you are setting,~/go as the worksapce
-this is how it is done
-```
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-```
-Add these two  export statements in ~/.bashrc so that its set all the time
+### Example
+[/example ](https://github.com/exotel/goexoml/tree/master/example) directory contains code demonstrating the library usage
 
-
-now you have go installed,try checking by checking the version
-```
-go version
-```
-Now you are ready to test goexoml,get the library using go get
-ie,
-```sh
-go get github.com/exotel/goexoml
-```
-
-
-Now you can copy paste the sample code server.go from example/server to a file ,say `path/to/file.go`
-The example program uses an external library for spawning http server intsll it as
-```sh
-go get github.com/labstack/echo
-```
-
-Run the server as
+For a quick start you may try the [example/server](https://github.com/exotel/goexoml/tree/master/example/server) 
 
 ```sh
-go run path/to/file.go
-```
+# install dependencies
+go get github.com/exotel/goexoml/example/server
 
-By now the exoml library would be running on port 1323
+# run server
+go run github.com/exotel/goexoml/example/server
+```
+By now the exoml server would be running on port 1323
 
 ```sh
 curl http://localhost:1323/dial/+919742033616
@@ -166,7 +142,7 @@ This would return an exoml
 
 
 #### Versioning
-##### *major version Changes would mean following *
+##### major version Changes would mean following 
 * Removing or renaming *any* exposed name (function, method, type, etc)
 * Adding, removing or renaming methods in an interface
 * Adding a parameter to a function, method, or interface
@@ -174,14 +150,13 @@ This would return an exoml
 * Changing the number of results in a function, method, or interface
 * Some user facing struct changes
 
-##### *expect these changes even without major version being same *
+##### expect these changes even without major version being same 
 * Adding exposed names (function, method, type, etc)
 * Renaming a parameter or result of a function, method, or interface*
 * Some struct changes which does not directly affect the functionality of the library [*much*] but may/maynot add new features to the existing library
 
 
 
-
-
 #### contributions
-sarath@exotel.in
+
+* Sarath S Pillai ([sarathsp06](https://github.com/sarathsp06))
