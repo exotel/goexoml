@@ -112,7 +112,7 @@ func main() {
 Follow the instructions [here](https://golang.org/doc/install) to install go 
 
 ### Example
-[/example ](https://github.com/exotel/goexoml/tree/master/example) directory contains code demonstrating the library usage
+[example ](https://github.com/exotel/goexoml/tree/master/example) directory contains code demonstrating the library usage
 
 For a quick start you may try the [example/server](https://github.com/exotel/goexoml/tree/master/example/server) 
 
