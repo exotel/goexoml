@@ -1,36 +1,45 @@
 package main
 
 import (
+	"encoding/xml"
+	"log"
 	"net/http"
 
 	"github.com/exotel/goexoml"
-	"github.com/labstack/echo"
-	mw "github.com/labstack/echo/middleware"
+	"github.com/go-chi/chi"
+	mw "github.com/go-chi/chi/middleware"
 )
 
 //Dial returns an exoml given number to call a number
-func Dial(c echo.Context) error {
+func Dial(w http.ResponseWriter, r *http.Request) {
 	var number string
-	number = c.Param("number")
+	number = chi.URLParam(r, "number")
 	if number == "" {
-		return c.String(http.StatusBadRequest, "PROVIDE NUMBER TO BE CALLED")
+		w.Header().Set("content-type", "text/plain")
+		w.WriteHeader(http.StatusBadRequest)
+		w.Write([]byte("PROVIDE NUMBER TO BE CALLED"))
 	}
+
 	resp := goexoml.NewResponse()
 	say := goexoml.NewSay().SetText("You can't handle the truth")
 	dial := goexoml.NewDial().SetPlainNumber(number)
 	resp.AddSay(say).AddDial(dial).AddHangup(goexoml.NewHangup())
-	return c.XML(http.StatusOK, resp)
+
+	xml, err := xml.Marshal(resp)
+	if err != nil {
+		w.Write([]byte(err.Error()))
+	}
+	w.Header().Set("content-type", "application/xml;charset=UTF-8")
+	w.WriteHeader(http.StatusOK)
+	w.Write(xml)
 }
 
 func main() {
-	// Echo instance
-	e := echo.New()
-	// Middleware
-	e.Use(mw.Logger())
-	e.Use(mw.Recover())
+	r := chi.NewRouter()
+	r.Use(mw.Logger)
+	r.Use(mw.Recoverer)
 
-	// Routes
-	e.GET("/dial/:number", Dial)
-	// Start server
-	e.Start(":1323")
+	r.Get("/dial/{number}", Dial)
+
+	log.Fatal(http.ListenAndServe(":1323", r))
 }
