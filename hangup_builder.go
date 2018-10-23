@@ -11,8 +11,7 @@ var _ = errors.New("_")
 
 // Setter returns setter function for the field given
 func (hangupReceiver *Hangup) Setter(field string) (setter func(interface{}) (*Hangup, error)) {
-	switch field {
-	}
+
 	return
 }
 

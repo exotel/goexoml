@@ -3,7 +3,7 @@ package goexoml
 import "encoding/xml"
 
 // Dial struct for the verb Dial which allows a number as plain test
-//go:generate buildergenerator -t Dial -f $GOFILE
+//go:generate go run ./buildergenerator/buildergenerator.go -t Dial -f $GOFILE
 type Dial struct {
 	XMLName      xml.Name `xml:"Dial"`
 	Action       string   `xml:"action,attr,omitempty"`
@@ -18,13 +18,13 @@ type Dial struct {
 }
 
 // Hangup struct for the verb Hangup
-//go:generate buildergenerator -t Hangup -f $GOFILE
+//go:generate go run ./buildergenerator/buildergenerator.go -t Hangup -f $GOFILE
 type Hangup struct {
 	XMLName xml.Name `xml:"Hangup"`
 }
 
 // Play struct for the verb Play
-//go:generate buildergenerator -t Play -f $GOFILE
+//go:generate go run ./buildergenerator/buildergenerator.go -t Play -f $GOFILE
 type Play struct {
 	XMLName xml.Name `xml:"Play"`
 	Loop    int      `xml:"loop,attr,omitempty"`
@@ -33,7 +33,7 @@ type Play struct {
 }
 
 // Record struct for the verb Record
-//go:generate buildergenerator -t Record -f $GOFILE
+//go:generate go run ./buildergenerator/buildergenerator.go -t Record -f $GOFILE
 type Record struct {
 	XMLName            xml.Name `xml:"Record"`
 	Action             string   `xml:"action,attr,omitempty"`
@@ -48,7 +48,7 @@ type Record struct {
 }
 
 // Redirect struct for the verb Redirect
-//go:generate buildergenerator -t Redirect -f $GOFILE
+//go:generate go run ./buildergenerator/buildergenerator.go -t Redirect -f $GOFILE
 type Redirect struct {
 	XMLName xml.Name `xml:"Redirect"`
 	Method  string   `xml:"method,attr,omitempty"`
@@ -56,7 +56,7 @@ type Redirect struct {
 }
 
 // Say struct for the verb Say
-//go:generate buildergenerator -t Say -f $GOFILE
+//go:generate go run ./buildergenerator/buildergenerator.go -t Say -f $GOFILE
 type Say struct {
 	XMLName  xml.Name `xml:"Say"`
 	Voice    string   `xml:"voice,attr,omitempty"`
@@ -66,7 +66,7 @@ type Say struct {
 }
 
 // Gather struct for the verb Gather
-//go:generate buildergenerator -t Gather -f $GOFILE
+//go:generate go run ./buildergenerator/buildergenerator.go -t Gather -f $GOFILE
 type Gather struct {
 	XMLName     xml.Name `xml:"Gather"`
 	Action      string   `xml:"action,attr,omitempty"`
@@ -79,7 +79,7 @@ type Gather struct {
 }
 
 // Number struct for the noun Number
-//go:generate buildergenerator -t Number -f $GOFILE
+//go:generate go run ./buildergenerator/buildergenerator.go -t Number -f $GOFILE
 type Number struct {
 	XMLName              xml.Name `xml:"Number"`
 	SendDigits           string   `xml:"sendDigits,attr,omitempty"`
