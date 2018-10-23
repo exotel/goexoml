@@ -53,7 +53,7 @@ func getTemplate() (temp *template.Template, err error) {
 
   // Setter returns setter function for the field given
 	func ({{$name | receiver}} *{{$name}}) Setter(field string) (setter func(interface{}) (*{{$name}}, error)) {
-		switch field { {{range $index, $field := .Fields}}
+		{{ if gt (len .Fields) 0 }} switch field { {{range $index, $field := .Fields}}
 	case "{{$field.FieldName}}":
 		setter = func({{$field.FieldName}}Field interface{}) (*{{$name}}, error) {
 			if {{$field.FieldName}}Value, ok := {{$field.FieldName}}Field.({{$field.FieldType}}); ok {
@@ -61,7 +61,7 @@ func getTemplate() (temp *template.Template, err error) {
 			}
 			return nil, errors.New("Invalid type Expected {{$field.FieldType}}")
 		}	{{end}}
-		}
+		}{{end}}
 		return
 	}
   // New{{.Name}} return a new {{.Name}} pointer
