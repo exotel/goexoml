@@ -109,38 +109,20 @@ func generateCode(t *template.Template, str Struct) (code []byte, err error) {
 	return
 }
 
-func generateBuilder(str Struct) (err error) {
-	var t *template.Template
-	t, err = getTemplate()
-
+func generateBuilder(str Struct, outfile *os.File) ([]byte, error) {
+	t, err := getTemplate()
 	if err != nil {
-		return
-	}
-	//create the template into a bytes Buffer
-	var code []byte
-	code, err = generateCode(t, str)
-	if err != nil {
-		return
+		return nil, err
 	}
 
-	//write to a file
-	var f *os.File
-	f, err = os.Create(strings.ToLower(str.Name) + "_builder.go")
-	if err != nil {
-		return
-	}
-	_, err = bytes.NewReader(code).WriteTo(f)
-	if err != nil {
-		return
-	}
-	return
+	return generateCode(t, str)
 }
 
 func structFields(structName string, f *ast.File, src string) (fs []Field) {
 	fields := f.Scope.Lookup(structName).Decl.(*ast.TypeSpec).Type.(*ast.StructType).Fields
 	for _, field := range fields.List {
 		if field.Names[0].String() != "XMLName" {
-			fs = append(fs, Field{FieldName: field.Names[0].String(), FieldType: src[field.Type.Pos()-1 : field.Type.End()]})
+			fs = append(fs, Field{FieldName: field.Names[0].String(), FieldType: src[field.Type.Pos()-1 : field.Type.End()-1]})
 		}
 	}
 	return
@@ -166,18 +148,24 @@ func getStructInfo(filename string, structName string) (str Struct, err error) {
 	return
 }
 
-func createStruct() (str Struct, err error) {
-	flag.Parse()
-	str, err = getStructInfo(*fileName, *structName)
-	return
-}
-
 func main() {
-	str, err := createStruct()
+	flag.Parse()
+	str, err := getStructInfo(*fileName, *structName)
 	if err != nil {
 		log.Fatal("Error happened creating the resource information", err.Error())
 	}
-	if err = generateBuilder(str); err != nil {
+
+	outfile, err := os.Create(strings.ToLower(str.Name) + "_builder.go")
+	if err != nil {
+		log.Fatalf("error creating file: %s", err.Error())
+	}
+
+	src, err := generateBuilder(str, outfile)
+	if err != nil {
 		log.Fatalln("Error happened generating the builder ", err.Error())
+	}
+
+	if _, err = bytes.NewReader(src).WriteTo(outfile); err != nil {
+		log.Fatalf("error writing to file: %s", err.Error())
 	}
 }
